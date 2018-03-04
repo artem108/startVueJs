@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Document</title>
+    <style media="screen">
+      .green {
+        background-color: green;
+      }
+      .grey {
+        background-color: grey
+      }
+      #main {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+      <section id="main">
+      <!-- variables -->
+        <p>{{ title }}</p>
+        <button type="button" v-on:click="changeTitle" >Change title</button>
+
+      <!-- forms -->
+        <p v-bind:class="text">New bg: {{ text }}</p>
+        <input type="text" v-on:input='changeBg(event.target.value)'>
+
+      <!-- functions -->
+        <p>Enter num:</p>
+        <input type="text" v-on:input='increment(event.target.value)'>
+        <p>Value: {{ value }}</p>
+        <p>Double value: {{ doubleValue }}</p>
+
+      <!-- if else -->
+        <button type="button" v-on:click='show = !show'>Show or not</button>
+        <p v-if='show'>Text will can disappear</p>
+        <p v-else>Or not</p>
+
+      <!-- lists -->
+        <ul>
+          <li v-for='(car, i) in cars'>{{i + 1}} Name: {{ car.name }}, Speed: {{ car.speed }}</li>
+        </ul>
+
+      <!-- filtres -->
+        <button type="button" v-on:click='show1 = !show1'>Show or not</button>
+        <p v-if='show1'>Text will can disappear</p>
+        <p v-else>{{ massage | lowerCase }}</p>
+
+      </section>
+        <!-- COMPONENTS -->
+      <section id="app">
+          <app-car></app-car>
+      </section>
+      <section id="app2">
+          <hr>
+          <apps-cars></apps-cars>
+      </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <!-- <script type="text/javascript" src="js/script.js"></script> -->
+    <script src="js/main.js" charset="utf-8"></script>
+  </body>
+</html>
